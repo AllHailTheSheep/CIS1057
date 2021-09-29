@@ -1,0 +1,26 @@
+Script started on Wed 01 Sep 2021 06:44:50 PM EDT
+cis-lclient06:~/lab1>exitcc lab1_kelvin.c
+cis-lclient06:~/lab1>cc lab1_kelvin.c[22G[K./a.out 
+TEMPERATURE CONVERSION
+This program will convert a Fahrenheit temperature to Kelvin.
+Enter a temperature in fahrenheit: 69
+69.00 degrees fahrenheit is 293.71 in Kelvin.
+        69.000000F = 293.705553K.
+cis-lclient06:~/lab1>./a.out[22Gcc lab1_kelvin.c
+cis-lclient06:~/lab1>cc lab1_kelvin.c[22G./a.out[K
+TEMPERATURE CONVERSION
+This program will convert a Fahrenheit temperature to Kelvin.
+Enter a temperature in fahrenheit: 420
+420.00 degrees fahrenheit is 488.71 in Kelvin.
+        420.000000F = 488.705534K.
+cis-lclient06:~/lab1>./a.out[22Gcc lab1_kelvin.c
+cis-lclient06:~/lab1>cc lab1_kelvin.c[22G./a.out[K
+TEMPERATURE CONVERSION
+This program will convert a Fahrenheit temperature to Kelvin.
+Enter a temperature in fahrenheit: 42  -42
+-42.00 degrees fahrenheit is 232.04 in Kelvin.
+        -42.000000F = 232.038893K.
+cis-lclient06:~/lab1>exit
+exit
+
+Script done on Wed 01 Sep 2021 06:45:31 PM EDT

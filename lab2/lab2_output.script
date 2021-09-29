@@ -1,0 +1,19 @@
+Script started on Wed 08 Sep 2021 06:41:22 PM EDT
+cis-lclient11:~/lab2>gcc l
+lab2.c              lab2_output.script  
+cis-lclient11:~/lab2>gcc lab2.c -lm
+cis-lclient11:~/lab2>./a.out 
+Enter m and n, seperated by a single space: 2 3
+The Pythagorean triple for m = 2.000000 and n = 3.000000 is a = 5.000000, b = 12.000000, and c = 13.000000.
+cis-lclient11:~/lab2>./a.out[22Ggcc lab2.c -lm
+cis-lclient11:~/lab2>./a.out 
+Enter m and n, seperated by a single space: 53.4 5789
+The Pythagorean triple for m = 53.400000 and n = 5789.000000 is a = 33509669.440000, b = 618265.200000, and c = 33515372.560000.
+cis-lclient11:~/lab2>./a.out[22Ggcc lab2.c -lm
+cis-lclient11:~/lab2>gcc lab2.c -lm[22G./a.out[K
+Enter m and n, seperated by a single space: 69, 42      6981.8347 098   98.324
+The Pythagorean triple for m = 6981.834700 and n = 98.324000 is a = -48736348.169148, b = 1372963.830086, and c = 48755683.387100.
+cis-lclient11:~/lab2>exit
+exit
+
+Script done on Wed 08 Sep 2021 06:42:38 PM EDT

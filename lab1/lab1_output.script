@@ -1,0 +1,28 @@
+Script started on Wed 01 Sep 2021 06:29:50 PM EDT
+cis-lclient06:~/lab1>cc la
+lab1.c              lab1_kelvin.c       lab1_output.script  
+cis-lclient06:~/lab1>cc lab1.c
+cis-lclient06:~/lab1>./a.out
+TEMPERATURE CONVERSION
+This program will convert a Fahrenheit temperature to Celsius.
+Enter a temperature in fahrenheit: -42
+-42.00 degrees fahrenheit is -41.11 in celsius.
+        -42.000000F = -41.111107C.
+cis-lclient06:~/lab1>./a.out[22Gcc lab1.c
+cis-lclient06:~/lab1>cc lab1.c[22G./a.out[K
+TEMPERATURE CONVERSION
+This program will convert a Fahrenheit temperature to Celsius.
+Enter a temperature in fahrenheit: 35
+35.00 degrees fahrenheit is 1.67 in celsius.
+        35.000000F = 1.666666C.
+cis-lclient06:~/lab1>./a.out[22Gcc lab1.c
+cis-lclient06:~/lab1>cc lab1.c[22G./a.out[K
+TEMPERATURE CONVERSION
+This program will convert a Fahrenheit temperature to Celsius.
+Enter a temperature in fahrenheit: 69
+69.00 degrees fahrenheit is 20.56 in celsius.
+        69.000000F = 20.555553C.
+cis-lclient06:~/lab1>exit
+exit
+
+Script done on Wed 01 Sep 2021 06:30:28 PM EDT

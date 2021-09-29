@@ -1,0 +1,86 @@
+Script started on Tue 28 Sep 2021 11:21:47 PM EDT
+cis-lclient12:~/lab4>gcc lab
+lab4.c              lab4_output.script  
+cis-lclient12:~/lab4>gcc lab4.c
+cis-lclient12:~/lab4>./a.out 
+This purpose of this program is to Calculate change in US bills and coins.
+This program was written by Ben Fasick on September 28th 2021.
+Amount of change you need: $116.23
+You owe them 
+5 twenties
+1 tens
+1 fives
+1 ones
+0 quarters
+2 dimes
+0 nickels
+and 3 pennies.
+cis-lclient12:~/lab4>./a.out
+This purpose of this program is to Calculate change in US bills and coins.
+This program was written by Ben Fasick on September 28th 2021.
+Amount of change you need: $5.99
+You owe them 
+0 twenties
+0 tens
+1 fives
+0 ones
+3 quarters
+2 dimes
+0 nickels
+and 4 pennies.
+cis-lclient12:~/lab4>./a.out
+This purpose of this program is to Calculate change in US bills and coins.
+This program was written by Ben Fasick on September 28th 2021.
+Amount of change you need: $0.32
+You owe them 
+0 twenties
+0 tens
+0 fives
+0 ones
+1 quarters
+0 dimes
+1 nickels
+and 2 pennies.
+cis-lclient12:~/lab4>./a.out
+This purpose of this program is to Calculate change in US bills and coins.
+This program was written by Ben Fasick on September 28th 2021.
+Amount of change you need: $17.88
+You owe them 
+0 twenties
+1 tens
+1 fives
+2 ones
+3 quarters
+1 dimes
+0 nickels
+and 3 pennies.
+cis-lclient12:~/lab4>./a.out
+This purpose of this program is to Calculate change in US bills and coins.
+This program was written by Ben Fasick on September 28th 2021.
+Amount of change you need: $278.92
+You owe them 
+13 twenties
+1 tens
+1 fives
+3 ones
+3 quarters
+1 dimes
+1 nickels
+and 2 pennies.
+cis-lclient12:~/lab4>./a.out
+This purpose of this program is to Calculate change in US bills and coins.
+This program was written by Ben Fasick on September 28th 2021.
+Amount of change you need: $52.00
+You owe them 
+2 twenties
+1 tens
+0 fives
+2 ones
+0 quarters
+0 dimes
+0 nickels
+and 0 pennies.
+cis-lclient12:~/lab4>exit
+exit
+
+Script done on Tue 28 Sep 2021 11:22:52 PM EDT

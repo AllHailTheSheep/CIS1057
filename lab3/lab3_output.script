@@ -1,0 +1,45 @@
+Script started on Wed 22 Sep 2021 06:24:28 PM EDT
+cis-lclient06:~/lab3>gcc lab3.c
+cis-lclient06:~/lab3>a.out[1@.[1@/
+This purpose of this program is to Demonstrate the swapping of two variables.
+This program was written by Ben Fasick on September 22nd 2021.
+Enter first integer value: 69
+
+Echo printing, read in the number = 69
+
+Enter second integer value: 420
+
+Echo printing, read in the number = 420
+
+The numbers before swap are (69, 420).
+The numbers after swap are (420, 69).
+cis-lclient06:~/lab3>./a.out
+This purpose of this program is to Demonstrate the swapping of two variables.
+This program was written by Ben Fasick on September 22nd 2021.
+Enter first integer value: 123
+
+Echo printing, read in the number = 123
+
+Enter second integer value: 1234
+
+Echo printing, read in the number = 1234
+
+The numbers before swap are (123, 1234).
+The numbers after swap are (1234, 123).
+cis-lclient06:~/lab3>a.out[1@.[1@/
+This purpose of this program is to Demonstrate the swapping of two variables.
+This program was written by Ben Fasick on September 22nd 2021.
+Enter first integer value: 10293810293
+
+Echo printing, read in the number = 1703875701
+
+Enter second integer value: 483920
+
+Echo printing, read in the number = 483920
+
+The numbers before swap are (1703875701, 483920).
+The numbers after swap are (483920, 1703875701).
+cis-lclient06:~/lab3>exit
+exit
+
+Script done on Wed 22 Sep 2021 06:25:21 PM EDT
