@@ -14,8 +14,9 @@
 // function prototypes
 void program_identification(char *, char *);
 void get_change(float, int *, int *, int *, int *, int *, int *, int *, int *);
-void elim_denoms(char[]);
-float prompt_for_cash_amount();
+int get_denoms_num();
+char** get_missing_denoms(int);
+float get_cash_amount();
 void print_change();
 
 int main(){
@@ -30,22 +31,50 @@ int main(){
     // declare variables
     float amount;
     int twenties, tens, fives, ones, quarters, dimes, nickels, pennies;
+    int denoms_num, i;
 
     // get amount to gibe in change and initialize variables
-    amount = prompt_for_cash_amount();
+    amount = get_cash_amount();
+    denoms_num = get_denoms_num();
+
+    char** to_elim = malloc(denoms_num * sizeof(char*));
+    to_elim = get_missing_denoms(denoms_num);
 
     // get change
     get_change(amount, &twenties, &tens, &fives, &ones, &quarters, &dimes, &nickels, &pennies);
 
+
     // inform user of output
     print_change(twenties, tens, fives, ones, quarters, dimes, nickels, pennies);
+ 
 
     // return 0 and quit
     return EXIT_SUCCESS;
 }
 
-void elim_denoms(char array[]){
+int get_denoms_num(){
+    int i;
+    printf("%s", "How many denominations are you out of?: ");
+    scanf("%d", &i);
+    return i;
+}
 
+char** get_missing_denoms(int denoms_num){
+    int i;
+    char** missing_denoms = malloc(denoms_num * sizeof(char*));
+    for (i = 0; i < denoms_num; i++) {
+        char *temp;
+        printf("%s", "Input the missing denom (type help to see possible entries): ");
+        scanf("%s", temp);
+        if (strcmp(temp, "help") == 0){
+            printf("%s", "The possibilities are twenties, tens, fives, ones, quarters, dimes, nickels, or pennies.\n");
+            printf("%s", "If pennies is missing, the answer will be rounded up to the nearest nickel.\n");
+            exit(1);
+        } else {
+        missing_denoms[i] = temp;
+        }
+    }
+    return missing_denoms;
 }
 
 void get_change(float amount, int *twenties, int *tens, int *fives, int *ones, int *quarters, int *dimes, int *nickels, int *pennies) {
@@ -128,7 +157,7 @@ void print_change(int twenties, int tens, int fives, int ones, int quarters, int
     return;
 }
 
-float prompt_for_cash_amount(){
+float get_cash_amount(){
     /**
     * Function: prompt_for_cash_amount()
     * Programmer Name: Ben Fasick
