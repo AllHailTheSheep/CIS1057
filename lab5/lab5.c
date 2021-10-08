@@ -61,7 +61,10 @@ int main(){
     print_change(twenties, tens, fives, ones, quarters, dimes, nickels, 
                 pennies);
 
-    // return 0 and quit
+    // do it again
+    main();
+
+    // the program will never execute this so it will never exit
     return EXIT_SUCCESS;
 }
 
