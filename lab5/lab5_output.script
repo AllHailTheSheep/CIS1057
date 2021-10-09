@@ -1,0 +1,249 @@
+Script started on Sat 09 Oct 2021 05:11:56 PM EDT
+cis-lclient11:~/CIS1057/lab5>gcc lab5driver.c 
+cis-lclient11:~/CIS1057/lab5>./a.out 
+This purpose of this program is to calculate change in US bills and coins with missing denominations.
+This program was written by Ben Fasick on October 6th 2021.
+0
+You need $116.23 in change and there are 2 denominations to remove.
+You owe them 
+5 twenties
+1 tens
+1 fives
+1 ones
+0 quarters
+0 dimes
+4 nickels
+and 3 pennies.
+
+1
+You need $116.23 in change and there are 3 denominations to remove.
+You owe them 
+5 twenties
+1 tens
+0 fives
+6 ones
+0 quarters
+0 dimes
+0 nickels
+and 23 pennies.
+
+2
+You need $116.23 in change and there are 2 denominations to remove.
+You owe them 
+0 twenties
+11 tens
+1 fives
+1 ones
+0 quarters
+2 dimes
+1 nickels
+and 0 pennies.
+
+3
+You need $116.23 in change and there are 3 denominations to remove.
+You owe them 
+5 twenties
+0 tens
+3 fives
+1 ones
+0 quarters
+0 dimes
+0 nickels
+and 23 pennies.
+
+4
+You need $5.99 in change and there are 2 denominations to remove.
+You owe them 
+0 twenties
+0 tens
+1 fives
+0 ones
+3 quarters
+0 dimes
+4 nickels
+and 4 pennies.
+
+5
+You need $5.99 in change and there are 3 denominations to remove.
+You owe them 
+0 twenties
+0 tens
+0 fives
+5 ones
+3 quarters
+0 dimes
+0 nickels
+and 24 pennies.
+
+6
+You need $5.99 in change and there are 2 denominations to remove.
+You owe them 
+0 twenties
+0 tens
+1 fives
+0 ones
+3 quarters
+2 dimes
+1 nickels
+and 0 pennies.
+
+7
+You need $5.99 in change and there are 3 denominations to remove.
+You owe them 
+0 twenties
+0 tens
+1 fives
+0 ones
+3 quarters
+0 dimes
+0 nickels
+and 24 pennies.
+
+8
+You need $0.32 in change and there are 2 denominations to remove.
+You owe them 
+0 twenties
+0 tens
+0 fives
+0 ones
+1 quarters
+0 dimes
+1 nickels
+and 2 pennies.
+
+9
+You need $0.32 in change and there are 3 denominations to remove.
+You owe them 
+0 twenties
+0 tens
+0 fives
+0 ones
+1 quarters
+0 dimes
+0 nickels
+and 7 pennies.
+
+10
+You need $0.32 in change and there are 2 denominations to remove.
+You owe them 
+0 twenties
+0 tens
+0 fives
+0 ones
+1 quarters
+0 dimes
+2 nickels
+and 0 pennies.
+
+11
+You need $0.32 in change and there are 3 denominations to remove.
+You owe them 
+0 twenties
+0 tens
+0 fives
+0 ones
+1 quarters
+0 dimes
+0 nickels
+and 7 pennies.
+
+12
+You need $278.92 in change and there are 2 denominations to remove.
+You owe them 
+13 twenties
+1 tens
+1 fives
+3 ones
+3 quarters
+0 dimes
+3 nickels
+and 2 pennies.
+
+13
+You need $278.92 in change and there are 3 denominations to remove.
+You owe them 
+13 twenties
+1 tens
+0 fives
+8 ones
+3 quarters
+0 dimes
+0 nickels
+and 17 pennies.
+
+14
+You need $278.92 in change and there are 2 denominations to remove.
+You owe them 
+0 twenties
+27 tens
+1 fives
+3 ones
+3 quarters
+1 dimes
+2 nickels
+and 0 pennies.
+
+15
+You need $278.92 in change and there are 3 denominations to remove.
+You owe them 
+13 twenties
+0 tens
+3 fives
+3 ones
+3 quarters
+0 dimes
+0 nickels
+and 17 pennies.
+
+16
+You need $52.00 in change and there are 2 denominations to remove.
+You owe them 
+2 twenties
+1 tens
+0 fives
+2 ones
+0 quarters
+0 dimes
+0 nickels
+and 0 pennies.
+
+17
+You need $52.00 in change and there are 3 denominations to remove.
+You owe them 
+2 twenties
+1 tens
+0 fives
+2 ones
+0 quarters
+0 dimes
+0 nickels
+and 0 pennies.
+
+18
+You need $52.00 in change and there are 2 denominations to remove.
+You owe them 
+0 twenties
+5 tens
+0 fives
+2 ones
+0 quarters
+0 dimes
+0 nickels
+and 0 pennies.
+
+19
+You need $52.00 in change and there are 3 denominations to remove.
+You owe them 
+2 twenties
+0 tens
+2 fives
+2 ones
+0 quarters
+0 dimes
+0 nickels
+and 0 pennies.
+
+cis-lclient11:~/CIS1057/lab5>exit
+exit
+
+Script done on Sat 09 Oct 2021 05:13:02 PM EDT
