@@ -38,25 +38,27 @@ int main(){
     // identify self
     program_identification("Ben Fasick", "October 6th 2021");
 
-    // declare variables
-    float amount;
-    int twenties, tens, fives, ones, quarters, dimes, nickels, pennies;
-    int denoms_num, i;
-    char** to_elim = malloc(32 * sizeof(char*));
-
     // get amount to gibe in change and initialize variables
-    for (i = 0; i <= 19; i++){
-        if (i <= 3 < 7){
+    for (int i = 0; i <= 19; i++){
+        // declare variables
+        int twenties, tens, fives, ones, quarters, dimes, nickels, pennies;
+        int denoms_num;
+        char** to_elim = malloc(32 * sizeof(char*));
+        float amount;
+        printf("%d\n", i);
+
+        if (0 <= i && i <= 3 ){
             amount = 116.23;
-        } else if (i <= 7 < 11){
+        } else if (4 <= i && i <= 7){
             amount = 5.99;
-        } else if (i <= 11 < 15){
+        } else if (7 <= i && i <= 11){
             amount = 0.32;
-        } else if (i <= 15 < 19){
+        } else if (11 <= i && i <= 15){
             amount = 278.92;
-        } else if (i <= 19){
+        } else if (15 <= i && i <= 19){
             amount = 52.00;
         }
+
         if (i % 4 == 0){
             denoms_num = 2;
             to_elim[0] = "dollars";
@@ -95,7 +97,6 @@ int main(){
         sleep(sleep_time);
     }
 
-    // the program will never execute this so it will never exit
     return EXIT_SUCCESS;
 }
 
