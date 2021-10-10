@@ -1,7 +1,7 @@
 /*
 * Programmer Name:     Ben Fasick
 * Class and Semester:  CIS 1057 Fall 2021
-* Date:                Wednesday, Octoberth, 2021
+* Date:                Wednesday, October 9th, 2021
 * Assignment:          Lab 4
 *    Name:             Banking Change
 *    Description:      Calculate change in US bills and coins with missing denominations..
@@ -238,7 +238,7 @@ void elim_denoms(char** array, int num_denoms, int *twenties, int *tens,
                 *pennies -= 5;
             }
             // when the program reaches here, it means we need to remove
-            // pennies and pennies <= zerp. therefore negative numbers have 
+            // pennies and pennies <= zero. therefore negative numbers have 
             // already been acounted for and we can just set pennies to zero
             *pennies = 0;
         }
@@ -370,6 +370,8 @@ void get_change(float amount, int *twenties, int *tens, int *fives, int *ones,
     */
     *pennies = (amount / .009);
     amount -= .01 * (*pennies);
+
+    return;
 }
 
 void program_identification(char *name, char *date){
