@@ -48,8 +48,20 @@ void program_identification(char *name, char *date)
 }
 
 int obtain_user_integer_input(const char* message){
+    /*
+    * Function: obtain_user_integer_input()
+    * Programmer Name: Ben Fasick
+    * Date:10/13/2021
+    * Preconditions:
+    * a const char* passed in
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: int
+    * Description: returns an integer after printing the mesaage passed in
+    */
     printf("%s", message);
-    char line[256];
-    int i;
-    
+    int num;
+    gets(num);
+    return num;
 }
