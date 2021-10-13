@@ -51,9 +51,5 @@ int obtain_user_integer_input(const char* message){
     printf("%s", message);
     char line[256];
     int i;
-    if (fgets(line, sizeof(line), stdin)) {
-        if (1 == sscanf(line, "%d", &i)) {
-            return i;
-        }
-    }
+    
 }

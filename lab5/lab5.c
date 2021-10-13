@@ -111,7 +111,7 @@ void elim_denoms(char** array, int num_denoms, int *twenties, int *tens,
     for (int i = 0; i < num_denoms; i++){
         char *denom = array[i];
 
-        printf("Now removing %s as found in array[%d].\n", denom, i);
+        // printf("Now removing %s as found in array[%d].\n", denom, i);
 
         // QUESTION: do you think it would be eastier to make all these 
         // reductions a function?
@@ -278,7 +278,7 @@ char** get_missing_denoms(int denoms_num){
     }
     for (int m = 0; m < denoms_num; m++){
         // this would be in logs
-        printf("%s\n", array[m]);
+        // printf("%s\n", array[m]);
     }
     // return our newly constructed **char
     return array;
