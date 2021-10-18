@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "../bin/benutils.h"
 
 // assignment description
 #define ASSIGNMENT_DESCRIPTION "Numeric tables generated on demand make it easy to understand the relation between ranges of numbers at a glance."
@@ -22,18 +23,39 @@ char* obtain_operator_input(void);
 void program_identification(char *, char *);
 
 int main(){
+    program_identification("Ben Fasick", "Monday October 18th");
     int low_row, low_col;
     char operator[2];
     low_row = obtain_user_integer_input("Enter low row number: ");
     low_col = obtain_user_integer_input("Enter low column number: ");
     strcpy(operator, obtain_operator_input());
 
-    printf("low_row = %d\nlow_col = %d\noperator = '%c'\n", low_row, low_col, operator);
+    printf("low_row = %d\nlow_col = %d\noperator = '%s'\n", low_row, low_col, operator);
 
+    return 0;
+}
+
+char* obtain_operator_input(void){
+    /*
+    * Function: obtain_user_operator_input()
+    * Programmer Name: Ben Fasick
+    * Date:10/18/2021
+    * Preconditions:
+    * n/a
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: string
+    * Description: returns a string after asking 
+    */
+    printf("%s", "Enter the operator to generate the table (enter 'h' for help): ");
+
+    char str[2];
+    strcpy(str, get_str_input());
+    char* s_ptr = str;
+    
     char help[2] = "h";
-    printf("'%c'\n'%c'\n", operator, help);
-    if (strcmp(operator, help) == 0){
-        printf("%s", "So far so good...\n");
+    if (strcmp(s_ptr, help) == 0){
         printf("%s%s%s%s%s%s%s%s%s%s", "The following operators and their meanings are supported:\n",
                                     "  +: addition\n",
                                     "  -: subtraction\n",
@@ -46,16 +68,6 @@ int main(){
                                     "  h: display this message\n\n");
         exit(1);
     }
-}
-
-char* obtain_operator_input(void){
-    printf("%s", "Enter the operator to generate the table (enter 'h' for help): ");
-
-    char str[2] = {};
-    char* s_ptr = str;
-    scanf("%[^\n]s", str);
-    printf("%s", str);
-    
     return s_ptr;
 }
 
@@ -73,16 +85,12 @@ int obtain_user_integer_input(const char* message){
     * Description: returns an integer after printing the mesaage passed in.
     */
     printf("%s", message);
-    char num[8];
     int i;
-    fgets(num, 7, stdin);
-    // TODO: add error checking
-    i = (int)strtol(num, NULL, 10);
+    i = get_int_input();
     return i;
 }
 
-void program_identification(char *name, char *date)
-{
+void program_identification(char *name, char *date){
     /*
     * Function: program_identification()
     * Programmer Name: Ben Fasick
