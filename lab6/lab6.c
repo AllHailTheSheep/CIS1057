@@ -20,17 +20,42 @@
 // function prototypes
 int obtain_user_integer_input(const char *);
 char* obtain_operator_input(void);
-void program_identification(char *, char *);
+void init_struct(int, int, int, int);
 
 int main(){
-    program_identification("Ben Fasick", "Monday October 18th");
-    int low_row, low_col;
+    // identify self
+    program_identification("Ben Fasick", "Monday October 18th", ASSIGNMENT_DESCRIPTION);
+    // print supported operators
+    printf("%s%s%s%s%s%s%s%s%s%s", "The following operators and their meanings are supported:\n",
+                                    "  +: addition\n",
+                                    "  -: subtraction\n",
+                                    "  x,X,*: multiplication\n",
+                                    "  /: division\n",
+                                    "  D: integer division\n",
+                                    "  %: modulo\n",
+                                    "  p: row value raised to the column power\n",
+                                    "  r: column root of the row value\n",
+                                    "  h: display this message\n\n");
+    
+    // declare variables
+    int x_low, x_high, y_low, y_high;
     char operator[2];
-    low_row = obtain_user_integer_input("Enter low row number: ");
-    low_col = obtain_user_integer_input("Enter low column number: ");
+
+    // get the user input we need
+    x_low = obtain_user_integer_input("Enter the x low number: ");
+    x_high = obtain_user_integer_input("Enter x high column number: ");
+    y_low = obtain_user_integer_input("Enter the y low number: ");
+    y_high = obtain_user_integer_input("Enter the y high number: ");
     strcpy(operator, obtain_operator_input());
 
-    printf("low_row = %d\nlow_col = %d\noperator = '%s'\n", low_row, low_col, operator);
+    // summarize collected info after some quick validation
+    
+    if (x_low < x_high == 0 || y_low < y_high == 0){
+        printf("x_low(%d) must be less then x_high(%d) and y_low(%d) must be less then y_high(%d).\n", x_low, x_high, y_low, y_high);
+        exit(1);
+    }
+
+    printf("x = %d-%d\ny = %d-%d\noperator = '%s'\n", x_low, x_high, y_low, y_high, operator);
 
     return 0;
 }
@@ -67,8 +92,9 @@ char* obtain_operator_input(void){
                                     "  r: column root of the row value\n",
                                     "  h: display this message\n\n");
         exit(1);
+    } else {
+        return s_ptr;
     }
-    return s_ptr;
 }
 
 int obtain_user_integer_input(const char* message){
@@ -87,24 +113,10 @@ int obtain_user_integer_input(const char* message){
     printf("%s", message);
     int i;
     i = get_int_input();
-    return i;
-}
-
-void program_identification(char *name, char *date){
-    /*
-    * Function: program_identification()
-    * Programmer Name: Ben Fasick
-    * Date:9/22/2021
-    * Preconditions:
-    * a constant known as ASSIGNMENT_DESCRIPTION
-    * Postconditions:
-    * n/a
-    * Globals: n/a
-    * Returns: void
-    * Description: Identifies the program with ASSIGNMENT_DESCRIPTION, the 
-    * programmer's name, and the date.
-    */
-    printf("This purpose of this program is to %s\n", ASSIGNMENT_DESCRIPTION);
-    printf("This program was written by %s on %s.\n", name, date);
-    return;
+    if (i < -15 || i > 15) {
+        printf("Please enter an integer between -15 and 15.\n");
+        obtain_user_integer_input(message);
+    } else {
+        return i;
+    }
 }
