@@ -49,13 +49,28 @@ int main(){
     strcpy(operator, obtain_operator_input());
 
     // summarize collected info after some quick validation
-    
+    char* operators = "+-xX*/D\%prh";
+    char* operator_pos = strstr(operators, operator);
+    if (operator_pos == NULL){
+        printf("'%s' is not a valid operator.\nPlease re-run the program.\n", operator);
+        exit(1);
+    }
     if (x_low < x_high == 0 || y_low < y_high == 0){
         printf("x_low(%d) must be less then x_high(%d) and y_low(%d) must be less then y_high(%d).\n", x_low, x_high, y_low, y_high);
         exit(1);
     }
-
     printf("x = %d-%d\ny = %d-%d\noperator = '%s'\n", x_low, x_high, y_low, y_high, operator);
+    
+    int* x_range;
+    int* y_range;
+    int x_len;
+    int y_len;
+    x_range = get_range(x_low, x_high);
+    y_range = get_range(y_low, y_high);
+    x_len = x_high- x_len;
+    y_len = y_high- y_len;
+    print_int_array(x_len, x_range);
+    print_int_array(y_len, y_range);
 
     return 0;
 }
