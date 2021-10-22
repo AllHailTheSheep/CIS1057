@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "../bin/benutils.h"
 
 // assignment description
@@ -20,22 +21,24 @@
 // function prototypes
 int obtain_user_integer_input(const char *);
 char* obtain_operator_input(void);
-void init_struct(int, int, int, int);
+
+int perform_int_operation(int, int, char*);
+double perform_double_operation(int, int, char*);
 
 int main(){
     // identify self
     program_identification("Ben Fasick", "Monday October 18th", ASSIGNMENT_DESCRIPTION);
     // print supported operators
-    printf("%s%s%s%s%s%s%s%s%s%s", "The following operators and their meanings are supported:\n",
-                                    "  +: addition\n",
-                                    "  -: subtraction\n",
-                                    "  x,X,*: multiplication\n",
-                                    "  /: division\n",
-                                    "  D: integer division\n",
-                                    "  %: modulo\n",
-                                    "  p: row value raised to the column power\n",
-                                    "  r: column root of the row value\n",
-                                    "  h: display this message\n\n");
+    printf("%s%s%s%s%s%s%s%s%s", "The following operators and their meanings are supported:\n",
+                                "  +: addition\n",
+                                "  -: subtraction\n",
+                                "  x,X,*: multiplication\n",
+                                "  /: division\n",
+                                "  D: integer division\n"
+                                "  %: modulo\n",
+                                "  p: row value raised to the column power\n",
+                                "  r: column root of the row value\n",
+                                "  h: display this message\n\n");
     
     // declare variables
     int x_low, x_high, y_low, y_high;
@@ -59,20 +62,66 @@ int main(){
         printf("x_low(%d) must be less then x_high(%d) and y_low(%d) must be less then y_high(%d).\n", x_low, x_high, y_low, y_high);
         exit(1);
     }
-    printf("x = %d-%d\ny = %d-%d\noperator = '%s'\n", x_low, x_high, y_low, y_high, operator);
+    // printf("x = %d-%d\ny = %d-%d\noperator = '%s'\n", x_low, x_high, y_low, y_high, operator);
     
-    int* x_range;
-    int* y_range;
+    // now get the ranges and print them
     int x_len;
     int y_len;
-    x_range = get_range(x_low, x_high);
-    y_range = get_range(y_low, y_high);
-    x_len = x_high- x_len;
-    y_len = y_high- y_len;
-    print_int_array(x_len, x_range);
-    print_int_array(y_len, y_range);
+    x_len = x_high - x_low + 1;
+    y_len = y_high - y_low + 1;
+    int* x_range = malloc(sizeof(int) * x_len);
+    int* y_range = malloc(sizeof(int) * y_len);
+    for (int i = 0; i < x_len; i++){
+        x_range[i] = x_low + i;
+    }
+    for (int i = 0; i < y_len; i++){
+        y_range[i] = y_low + i;
+    }
 
+    // print_int_array(x_range, x_len);
+    // print_int_array(y_range, y_len);
+
+    // now heres where things get interesting
+    // some of our operators have the potential of returning doubles
+    // we need to be able to deal with that
+    char* double_operator_pos = strstr("/r", operator);
+
+    if (double_operator_pos == NULL){
+        printf("%s is not a double operator.\n", operator);
+    } else {
+        printf("%s is a double operator.\n", operator);
+    }
     return 0;
+}
+
+double perform_double_operation(int thing1, int thing2, char* operator){
+    double output;
+    if (strcmp(operator, "/") == 0){
+        output = thing1 / thing2;
+    } else if (strcmp(operator, "r") == 0){
+        output = pow(thing1, 1/thing2);
+    }
+    return output;
+}
+
+int perform_int_operation(int thing1, int thing2, char* operator){
+    int output;
+    if (strcmp(operator, "+") == 0){
+        output = thing1 + thing2;
+    } else if (strcmp(operator, "-") == 0){
+        output = thing1 - thing2;
+    } else if (strcmp(operator, "x") == 0){
+        output = thing1 * thing2;
+    } else if (strcmp(operator, "X") == 0){
+        output = thing1 * thing2;
+    } else if (strcmp(operator, "*") == 0){
+        output = thing1 * thing2;
+    } else if (strcmp(operator, "%") == 0){
+        output = thing1 % thing2;
+    } else if (strcmp(operator, "p") == 0){
+        output = pow(thing1, thing2);
+    }
+    return output;
 }
 
 char* obtain_operator_input(void){
@@ -90,25 +139,24 @@ char* obtain_operator_input(void){
     */
     printf("%s", "Enter the operator to generate the table (enter 'h' for help): ");
 
-    char str[2];
-    strcpy(str, get_str_input());
-    char* s_ptr = str;
+    char *str;
+    str = get_str_input("");
     
     char help[2] = "h";
-    if (strcmp(s_ptr, help) == 0){
+    if (strcmp(str, help) == 0){
         printf("%s%s%s%s%s%s%s%s%s%s", "The following operators and their meanings are supported:\n",
                                     "  +: addition\n",
                                     "  -: subtraction\n",
                                     "  x,X,*: multiplication\n",
                                     "  /: division\n",
-                                    "  D: integer division\n",
+                                    "  D: integer division\n"
                                     "  %: modulo\n",
                                     "  p: row value raised to the column power\n",
                                     "  r: column root of the row value\n",
                                     "  h: display this message\n\n");
         exit(1);
     } else {
-        return s_ptr;
+        return str;
     }
 }
 

@@ -7,11 +7,9 @@
 void program_identification(char*, char*, char*);
 // input
 int get_int_input();
-char* get_str_input();
+char* get_str_input(char*);
 // arrays
-int* get_range(int, int);
-void print_int_array(int, int*);
-
+void print_int_array(int*, int);
 
 void program_identification(char *name, char *date, char* description){
     /*
@@ -50,10 +48,16 @@ int get_int_input(){
     fgets(num, 7, stdin);
     // TODO: add error checking
     i = (int)strtol(num, NULL, 10);
+    if (i == 0){
+        num[strcspn(num, "\n")] = 0;
+        printf("Are you sure %s is a number?\n", num);
+        exit(1);
+    } else {
     return i;
+    }
 }
 
-char* get_str_input(){
+char* get_str_input(char* message){
     /*
     * Function: get_str_input()
     * Programmer Name: Ben Fasick
@@ -66,30 +70,17 @@ char* get_str_input(){
     * Returns: string
     * Description: fetches and returns a string from the user
     */
-    char str[64] = {};
-    char* s_ptr = str;
-    scanf("%[^\n]s", str);
-    return s_ptr;
+    printf ("%s", message);
+    char* temp = malloc(sizeof(char) * 32);
+    scanf("%s", temp);
+    // TODO: add testing to temp
+    return temp;
 }
 
-int* get_range(int lower, int upper){
-    if (upper <= lower){
-        printf("The first parameter must be lower then then second.\n");
-        exit(1);
-    }
-    int len;
-    len = upper - lower;
-    int* range = malloc(sizeof(int) * len);
-    for (int i = 0; i < len; i++){
-        range[i] = i;
-    }
-    return range;
-}
-
-void print_int_array(int array_size, int* array){
-    printf("%s", "Inside print_int_array()\n");
+void print_int_array(int* array, int array_size){
     for (int i = 0; i < array_size; i++){
-        printf("%d\n", array[i]);
+        printf("%d ", array[i]);
     }
+    printf("\n");
     return;
 }
