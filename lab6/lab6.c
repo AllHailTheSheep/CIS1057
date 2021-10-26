@@ -21,9 +21,10 @@
 // function prototypes
 int obtain_user_integer_input(const char *);
 char* obtain_operator_input(void);
-
 int perform_int_operation(int, int, char*);
 double perform_double_operation(int, int, char*);
+char* get_from_array(char***, int, int);
+char* to_array(int);
 
 int main(){
     // identify self
@@ -46,10 +47,11 @@ int main(){
 
     // get the user input we need
     x_low = obtain_user_integer_input("Enter the x low number: ");
-    x_high = obtain_user_integer_input("Enter x high column number: ");
+    x_high = obtain_user_integer_input("Enter the x high number: ");
     y_low = obtain_user_integer_input("Enter the y low number: ");
     y_high = obtain_user_integer_input("Enter the y high number: ");
     strcpy(operator, obtain_operator_input());
+
 
     // summarize collected info after some quick validation
     char* operators = "+-xX*/D\%prh";
@@ -62,13 +64,13 @@ int main(){
         printf("x_low(%d) must be less then x_high(%d) and y_low(%d) must be less then y_high(%d).\n", x_low, x_high, y_low, y_high);
         exit(1);
     }
-    // printf("x = %d-%d\ny = %d-%d\noperator = '%s'\n", x_low, x_high, y_low, y_high, operator);
+    printf("x = %d to %d\ny = %d to %d\noperator = '%s'\n", x_low, x_high, y_low, y_high, operator);
     
     // now get the ranges and print them
     int x_len;
     int y_len;
-    x_len = x_high - x_low + 1;
-    y_len = y_high - y_low + 1;
+    x_len = (x_high - x_low) + 1;
+    y_len = (y_high - y_low) + 1;
     int* x_range = malloc(sizeof(int) * x_len);
     int* y_range = malloc(sizeof(int) * y_len);
     for (int i = 0; i < x_len; i++){
@@ -84,12 +86,56 @@ int main(){
     // now heres where things get interesting
     // some of our operators have the potential of returning doubles
     // we need to be able to deal with that
-    char* double_operator_pos = strstr("/r", operator);
+    // create array of size x_len + 1, y_len + 1
+    int array_x = x_len + 1;
+    int array_y = y_len + 1;
 
-    if (double_operator_pos == NULL){
-        printf("%s is not a double operator.\n", operator);
-    } else {
-        printf("%s is a double operator.\n", operator);
+    char*** array;
+    array = malloc(sizeof(char**) * array_x);
+    
+    for (int i = 0; i < array_x; i++){
+        array[i] = malloc(sizeof(char*) * array_y);
+    }
+
+    char* double_operators = "/r";
+    char* double_operators_pos = strstr(double_operators, operator);
+    // fill array
+    for (int x = 0; x < array_x; x++){
+        for (int y = 0; y < array_y; y++){
+            // printf("filling array[%d][%d]...\n", x, y);
+            char* buf = malloc(32);
+            if (x == 0 && y == 0){
+                array[x][y] = operator;
+            } else if (x == 0 && y > 0){
+                snprintf(buf, 32, "%d", y_range[y - 1]);
+                array[x][y] = buf;
+            } else if (y == 0 && x > 0){
+                snprintf(buf, 32, "%d", x_range[x - 1]);
+                array[x][y] = buf;
+            } else if (y > 0 && x > 0){
+                if (double_operators_pos == NULL) {
+                    snprintf(buf, 32, "%d", perform_int_operation(x_range[x - 1], y_range[y - 1], operator));
+                    array[x][y] = buf;
+                } else {
+                    snprintf(buf, 32, "%f", perform_double_operation(x_range[x - 1], y_range[y - 1], operator));
+                    array[x][y] = buf;
+                }
+            }
+            // printf("array[%d][%d] = %s\n\n", x, y, array[x][y]);
+        }
+    }
+    // printf("%dx%d array filled\n", array_x, array_y);
+
+    // print the array
+    for (int x = 0; x < array_x; x++){
+        for (int y = 0; y < array_y; y++){
+            printf("%s", array[x][y]);
+            int len = strlen(array[x][y]);
+            for (int i = 0; i < 12 - len; i++){
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
     return 0;
 }
@@ -97,10 +143,11 @@ int main(){
 double perform_double_operation(int thing1, int thing2, char* operator){
     double output;
     if (strcmp(operator, "/") == 0){
-        output = thing1 / thing2;
+        output = (double)thing1 / (double)thing2;
     } else if (strcmp(operator, "r") == 0){
-        output = pow(thing1, 1/thing2);
+        output = pow((double)thing1, (double)thing2);
     }
+    // printf("%d %s %d = %f\n", thing1, operator, thing2, output);
     return output;
 }
 
@@ -121,6 +168,7 @@ int perform_int_operation(int thing1, int thing2, char* operator){
     } else if (strcmp(operator, "p") == 0){
         output = pow(thing1, thing2);
     }
+    // printf("%d %s %d = %d\n", thing1, operator, thing2, output);
     return output;
 }
 
@@ -144,7 +192,7 @@ char* obtain_operator_input(void){
     
     char help[2] = "h";
     if (strcmp(str, help) == 0){
-        printf("%s%s%s%s%s%s%s%s%s%s", "The following operators and their meanings are supported:\n",
+        printf("%s%s%s%s%s%s%s%s%s", "The following operators and their meanings are supported:\n",
                                     "  +: addition\n",
                                     "  -: subtraction\n",
                                     "  x,X,*: multiplication\n",

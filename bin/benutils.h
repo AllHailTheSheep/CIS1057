@@ -4,12 +4,12 @@
 
 // prototypes (not needed in header files but it helps me keep track of shit)
 // general utilities needed for class things
-void program_identification(char*, char*, char*);
+void program_identification(char*, char*, char*); // identifies the program
 // input
-int get_int_input();
-char* get_str_input(char*);
+int get_int_input(); // take int input
+char* get_str_input(char*); // returns a string after prompting for input
 // arrays
-void print_int_array(int*, int);
+void print_int_array(int*, int); // prints an int array
 
 void program_identification(char *name, char *date, char* description){
     /*
@@ -78,6 +78,7 @@ char* get_str_input(char* message){
 }
 
 void print_int_array(int* array, int array_size){
+    printf("the following array has a length of %d\n", array_size);
     for (int i = 0; i < array_size; i++){
         printf("%d ", array[i]);
     }
