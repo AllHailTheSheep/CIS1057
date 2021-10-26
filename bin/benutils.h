@@ -78,6 +78,18 @@ char* get_str_input(char* message){
 }
 
 void print_int_array(int* array, int array_size){
+    /*
+    * Function: print_int_array()
+    * Programmer Name: Ben Fasick
+    * Date:10/20/2021
+    * Preconditions:
+    * int* array and int array_size
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: void
+    * Description: prints an int array
+    */
     printf("the following array has a length of %d\n", array_size);
     for (int i = 0; i < array_size; i++){
         printf("%d ", array[i]);

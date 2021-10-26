@@ -113,7 +113,7 @@ int main(){
                 snprintf(buf, 32, "%d", x_range[x - 1]);
                 array[x][y] = buf;
             } else if (y > 0 && x > 0){
-                if (double_operators_pos == NULL) {
+                if (double_operators_pos == NULL){
                     snprintf(buf, 32, "%d", perform_int_operation(x_range[x - 1], y_range[y - 1], operator));
                     array[x][y] = buf;
                 } else {
@@ -130,9 +130,16 @@ int main(){
     for (int x = 0; x < array_x; x++){
         for (int y = 0; y < array_y; y++){
             printf("%s", array[x][y]);
+            // we want to have space between numbers
             int len = strlen(array[x][y]);
-            for (int i = 0; i < 12 - len; i++){
-                printf(" ");
+            if (double_operators_pos == NULL){
+                for (int i = 0; i < 8 - len; i++){
+                    printf(" ");
+                }
+            } else {
+                for (int i = 0; i < 12 - len; i++){
+                    printf(" ");
+                }
             }
         }
         printf("\n");
@@ -141,6 +148,18 @@ int main(){
 }
 
 double perform_double_operation(int thing1, int thing2, char* operator){
+    /*
+    * Function: perform_double_operation()
+    * Programmer Name: Ben Fasick
+    * Date:10/25/2021
+    * Preconditions:
+    * int thing1, int thing2, operator that = /, r.
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: double
+    * Description: returns a double after doing double math with two int params
+    */
     double output;
     if (strcmp(operator, "/") == 0){
         output = (double)thing1 / (double)thing2;
@@ -152,6 +171,18 @@ double perform_double_operation(int thing1, int thing2, char* operator){
 }
 
 int perform_int_operation(int thing1, int thing2, char* operator){
+    /*
+    * Function: perform_int_operation()
+    * Programmer Name: Ben Fasick
+    * Date:10/25/2021
+    * Preconditions:
+    * int thing1, int thing2, operator that = +, -, *, x, X, %, p.
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: int
+    * Description: returns an int after doing integer math with two int params
+    */
     int output;
     if (strcmp(operator, "+") == 0){
         output = thing1 + thing2;
@@ -191,6 +222,7 @@ char* obtain_operator_input(void){
     str = get_str_input("");
     
     char help[2] = "h";
+    // gotta have help
     if (strcmp(str, help) == 0){
         printf("%s%s%s%s%s%s%s%s%s", "The following operators and their meanings are supported:\n",
                                     "  +: addition\n",
