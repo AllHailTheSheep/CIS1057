@@ -194,6 +194,8 @@ int perform_int_operation(int thing1, int thing2, char* operator){
         output = thing1 * thing2;
     } else if (strcmp(operator, "*") == 0){
         output = thing1 * thing2;
+    } else if (strcmp(operator, "D") == 0){
+        output = thing1 / thing2;
     } else if (strcmp(operator, "%") == 0){
         output = thing1 % thing2;
     } else if (strcmp(operator, "p") == 0){
