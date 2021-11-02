@@ -10,8 +10,9 @@ int get_int_input(); // take int input
 char* get_str_input(char*); // returns a string after prompting for input
 // arrays
 void print_int_array(int*, int); // prints an int array
+void print_char_array(char***, int, int); // prints a char array
 
-void program_identification(char *name, char *date, char* description){
+void program_identification(char *name, char *date, char* description) {
     /*
     * Function: program_identification()
     * Programmer Name: Ben Fasick
@@ -30,7 +31,7 @@ void program_identification(char *name, char *date, char* description){
     return;
 }
 
-int get_int_input(){
+int get_int_input() {
     /*
     * Function: get_int_input()
     * Programmer Name: Ben Fasick
@@ -57,7 +58,7 @@ int get_int_input(){
     }
 }
 
-char* get_str_input(char* message){
+char* get_str_input(char* message) {
     /*
     * Function: get_str_input()
     * Programmer Name: Ben Fasick
@@ -77,7 +78,7 @@ char* get_str_input(char* message){
     return temp;
 }
 
-void print_int_array(int* array, int array_size){
+void print_int_array(int* array, int array_size) {
     /*
     * Function: print_int_array()
     * Programmer Name: Ben Fasick
@@ -90,8 +91,36 @@ void print_int_array(int* array, int array_size){
     * Returns: void
     * Description: prints an int array
     */
-    for (int i = 0; i < array_size; i++){
+    for (int i = 0; i < array_size; i++) {
         printf("%d ", array[i]);
+    }
+    printf("\n");
+    return;
+}
+
+void print_char_array(char*** array, int i, int j) {
+    /*
+    * Function: print_char_array()
+    * Programmer Name: Ben Fasick
+    * Date:11/1/2021
+    * Preconditions:
+    * 2d char array in array and its demensions in i and j
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: void
+    * Description: prints an i x j char array
+    */
+   
+    for (int x = 0; x < i; x++) {
+        for (int y = 0; y < j; y++) {
+            printf("%s", array[x][y]);
+            int len = strlen(array[x][y]);
+            for (int i = 0; i < 16 - len; i++) {
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
     printf("\n");
     return;
