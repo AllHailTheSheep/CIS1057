@@ -90,7 +90,6 @@ void print_int_array(int* array, int array_size){
     * Returns: void
     * Description: prints an int array
     */
-    printf("the following array has a length of %d\n", array_size);
     for (int i = 0; i < array_size; i++){
         printf("%d ", array[i]);
     }
