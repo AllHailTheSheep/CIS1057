@@ -22,6 +22,7 @@ char* check_data(double, int);
 int main() {
     // identify self
     program_identification("Ben Fasick", "November 1st 2021", ASSIGNMENT_DESCRIPTION);
+    printf("Enter anything other then a number at anytime to exit the program.\n");
     while (1) {
         double data;
         int percent;
