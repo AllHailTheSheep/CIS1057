@@ -6,6 +6,7 @@
 // general utilities needed for class things
 void program_identification(char*, char*, char*); // identifies the program
 // input
+double get_double_input(); // take double input
 int get_int_input(); // take int input
 char* get_str_input(char*); // returns a string after prompting for input
 // arrays
@@ -29,6 +30,33 @@ void program_identification(char *name, char *date, char* description) {
     printf("This purpose of this program is to %s\n", description);
     printf("This program was written by %s on %s.\n", name, date);
     return;
+}
+
+double get_double_input() {
+    /*
+    * Function: get_int_input()
+    * Programmer Name: Ben Fasick
+    * Date:10/18/2021
+    * Preconditions:
+    * n/a
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: int
+    * Description: fetches and returns an double from the user
+    */
+    char num[32];
+    double i;
+    fgets(num, 31, stdin);
+    // TODO: add error checking
+    i = strtol(num, NULL, 10);
+    if (i == 0){
+        num[strcspn(num, "\n")] = 0;
+        printf("Are you sure %s is a number?\n", num);
+        exit(1);
+    } else {
+    return i;
+    }
 }
 
 int get_int_input() {
