@@ -311,7 +311,7 @@ int obtain_user_integer_input(const char* message){
     */
     printf("%s", message);
     int i;
-    i = get_int_input();
+    i = get_int_input(NULL);
     if (i < -15 || i > 15) {
         printf("Please enter an integer between -15 and 15.\n");
         obtain_user_integer_input(message);
