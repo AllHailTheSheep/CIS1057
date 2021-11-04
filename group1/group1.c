@@ -9,8 +9,8 @@ int main(){
     // identify self
     program_identification("Ben Fasick, et. al.", "1 November 2021",
                             ASSIGNMENT_PURPOSE);
-    // time to test count_all(). there will be three test cases, and each will
-    // test search for 0 to n-1
+    // tests for count_all()
+    // there will be three test cases, and each will test search for 0 to n-1
 
     // case test 1
     int test1[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5};
@@ -42,6 +42,8 @@ int main(){
     }
     printf("\n");
 
+    // tests for yesNo
+    // how tf do we test for a function with user input
     // TODO: add tests for other functions
     
     return 0;
