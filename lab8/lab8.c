@@ -22,14 +22,12 @@ char* check_data(double, int);
 int main() {
     // identify self
     program_identification("Ben Fasick", "November 1st 2021", ASSIGNMENT_DESCRIPTION);
-    printf("Enter anything other then a number at anytime to exit the program.\n");
     while (1) {
         double data;
         int percent;
-        printf("Enter your observed boiling point: ");
-        data = get_double_input();
-        printf("Enter your tolerance (usually 4): ");
-        percent = get_int_input();
+        data = get_double_input("Enter your observed boiling point (9999 to exit): ");
+        if ((int)data == 9999) {exit(0);}
+        percent = get_int_input("Enter your tolerance (usually 4): ");
 
         char* res;
         res = check_data(data, percent);

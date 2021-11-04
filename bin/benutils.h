@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 // prototypes (not needed in header files but it helps me keep track of shit)
 // general utilities needed for class things
 void program_identification(char*, char*, char*); // identifies the program
 // input
-double get_double_input(); // take double input
-int get_int_input(); // take int input
+double get_double_input(char*); // take double input
+int get_int_input(char*); // take int input
 char* get_str_input(char*); // returns a string after prompting for input
 // arrays
 void print_int_array(int*, int); // prints an int array
@@ -32,58 +33,46 @@ void program_identification(char *name, char *date, char* description) {
     return;
 }
 
-double get_double_input() {
+double get_double_input(char* message) {
     /*
     * Function: get_int_input()
     * Programmer Name: Ben Fasick
     * Date:10/18/2021
     * Preconditions:
-    * n/a
+    * message to be printed, or NULL
     * Postconditions:
     * n/a
     * Globals: n/a
     * Returns: int
     * Description: fetches and returns an double from the user
     */
-    char num[32];
-    double i;
-    fgets(num, 31, stdin);
-    // TODO: add error checking
-    i = strtol(num, NULL, 10);
-    if (i == 0){
-        num[strcspn(num, "\n")] = 0;
-        printf("Are you sure %s is a number?\n", num);
-        exit(1);
-    } else {
-    return i;
-    }
+    double number;
+    do {
+        printf("%s", message);
+        scanf("%*c"); // burn stdin so as not to buffer up responses
+    } while (1 != scanf("%lf", &number));
+    return number;
 }
 
-int get_int_input() {
+int get_int_input(char* message) {
     /*
     * Function: get_int_input()
     * Programmer Name: Ben Fasick
     * Date:10/18/2021
     * Preconditions:
-    * n/a
+    * message to be printed, or NULL
     * Postconditions:
     * n/a
     * Globals: n/a
     * Returns: int
     * Description: fetches and returns an int from the user
     */
-    char num[8];
-    int i;
-    fgets(num, 7, stdin);
-    // TODO: add error checking
-    i = (int)strtol(num, NULL, 10);
-    if (i == 0){
-        num[strcspn(num, "\n")] = 0;
-        printf("Are you sure %s is a number?\n", num);
-        exit(1);
-    } else {
-    return i;
-    }
+    int number;
+    do {
+        printf("%s", message);
+        scanf("%*c"); // burn stdin so as not to buffer up responses
+    } while (1 != scanf("%d", &number));
+    return number;
 }
 
 char* get_str_input(char* message) {
@@ -92,18 +81,18 @@ char* get_str_input(char* message) {
     * Programmer Name: Ben Fasick
     * Date:10/18/2021
     * Preconditions:
-    * n/a
+    * message to be printed, or NULL
     * Postconditions:
     * n/a
     * Globals: n/a
     * Returns: string
     * Description: fetches and returns a string from the user
     */
-    printf ("%s", message);
-    char* temp = malloc(sizeof(char) * 32);
-    scanf("%s", temp);
-    // TODO: add testing to temp
-    return temp;
+    char* string;
+    do {
+        printf("%s", message);
+        scanf("%*c"); // burn stdin so as not to buffer up responses
+    } while (1 != scanf("%s", string));
 }
 
 void print_int_array(int* array, int array_size) {
