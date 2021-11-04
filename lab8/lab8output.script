@@ -1,9 +1,11 @@
 Script started on Thu 04 Nov 2021 01:50:13 PM EDT
-cis-lclient06:~/CIS1057/lab8>gcc lab8.c
-cis-lclient06:~/CIS1057/lab8>./a.out 
+cis-lclient06:~/CIS1057/lab8>gcc lab8.c
+
+cis-lclient06:~/CIS1057/lab8>./a.out 
+
 This purpose of this program is to return the material with a boiling point corresponding to the entered temperature
 This program was written by Ben Fasick on November 1st 2021.
-Enter your observed boiling point (9999 to exit): -74 5
+Enter your observed boiling point (9999 to exit): 75
 Enter your tolerance (usually 4): 4
 75.000000 is not a boiling point of a known substance.
 Please enter a new value and try again.
@@ -18,7 +20,8 @@ Enter your observed boiling point (9999 to exit): 1504
 Enter your tolerance (usually 4): 5
 A boiling point of 1504.000000 means your substance is probably Talc.
 Enter your observed boiling point (9999 to exit): 9999
-cis-lclient06:~/CIS1057/lab8>exit
+cis-lclient06:~/CIS1057/lab8>exit
+
 exit
 
 Script done on Thu 04 Nov 2021 01:51:07 PM EDT
