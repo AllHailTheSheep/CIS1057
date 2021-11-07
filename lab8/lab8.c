@@ -54,7 +54,7 @@ char* check_data(double data, int percent) {
     for (int i = 0; i < 13; i++) {
         double min = strtod(boiling_points[i], NULL) - percent;
         double max = strtod(boiling_points[i], NULL) + percent;
-        if((data-min)*(data-max) <= 0){
+        if ((data-min)*(data-max) <= 0) {
             return substances[i];
         }
     }

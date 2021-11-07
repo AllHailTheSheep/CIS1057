@@ -43,8 +43,34 @@ int main(){
     printf("\n");
 
     // tests for yesNo
-    // how tf do we test for a function with user input
-    // TODO: add tests for other functions
+    printf("yesNo will run 5 times.\n");
+    for (int i = 0; i < 5; i++){
+        char res;
+        printf("Iteration %d\n", i);
+        res = yesNo("Enter yes or no: ");
+        printf("The function returned %c.\n", res);
+    }
+
+    // tests for all_values_within_range()
+    double array1[] = {0.0, 100.0, 1000.0};
     
-    return 0;
+    print_double_array(array1, sizeof(array1)/sizeof(double));
+    printf("min: %d\nmax: %d\nresult: %d\n", 0, 9999,
+            all_values_within_range(array1, sizeof(array1)/sizeof(double), 0, 9999));
+
+    print_double_array(array1, sizeof(array1)/sizeof(double));
+    printf("min: %d\nmax: %d\nresult: %d\n", 0, 10,
+            all_values_within_range(array1, sizeof(array1)/sizeof(double), 0, 10));
+    
+    double array2[] = {1.0, 2.5, 1000.0, 1500.015, 99.875, 100.011};
+
+    print_double_array(array2, sizeof(array2)/sizeof(double));
+    printf("min: %d\nmax: %d\nresult: %d\n", 1, 1500,
+            all_values_within_range(array1, sizeof(array1)/sizeof(double), 1, 1500));
+    
+    print_double_array(array2, sizeof(array2)/sizeof(double));
+    printf("min: %d\nmax: %d\nresult: %d\n", 0, 1600,
+            all_values_within_range(array1, sizeof(array1)/sizeof(double), 0, 1600));
+    
+    return EXIT_SUCCESS;
 }

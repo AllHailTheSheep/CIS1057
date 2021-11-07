@@ -12,7 +12,8 @@ int get_int_input(char*); // take int input
 char* get_str_input(char*); // returns a string after prompting for input
 // arrays
 void print_int_array(int*, int); // prints an int array
-void print_char_array(char***, int, int); // prints a char array
+void print_double_array(double*, int); // prints a double array
+void print_2d_char_array(char***, int, int); // prints a 2d char array
 
 void program_identification(char *name, char *date, char* description) {
     /*
@@ -109,13 +110,41 @@ void print_int_array(int* array, int array_size) {
     * Description: prints an int array
     */
     for (int i = 0; i < array_size; i++) {
-        printf("%d ", array[i]);
+        if (i != array_size - 1) {
+            printf("%d, ", array[i]);
+        } else {
+            printf("%d", array[i]);
+        }
     }
     printf("\n");
     return;
 }
 
-void print_char_array(char*** array, int i, int j) {
+void print_double_array(double* array, int array_size) {
+    /*
+    * Function: print_double_array()
+    * Programmer Name: Ben Fasick
+    * Date: 11/6/2021
+    * Preconditions:
+    * double* array and int array_size
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: void
+    * Description: prints a double array
+    */
+    for (int i = 0; i < array_size; i++) {
+        if ( i != array_size - 1) {
+            printf("%lf, ", array[i]);
+        } else {
+            printf("%lf", array[i]);
+        }
+    }
+    printf("\n");
+    return;
+}
+
+void print_2d_char_array(char*** array, int i, int j) {
     /*
     * Function: print_char_array()
     * Programmer Name: Ben Fasick
