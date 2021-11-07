@@ -21,7 +21,7 @@ void program_identification(char *name, char *date, char* description) {
     * Programmer Name: Ben Fasick
     * Date:9/22/2021
     * Preconditions:
-    * a constant known as ASSIGNMENT_DESCRIPTION
+    * a string for name, date, and description
     * Postconditions:
     * n/a
     * Globals: n/a
