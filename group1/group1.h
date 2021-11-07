@@ -37,10 +37,12 @@ char yesNo(char *prompt) {
     * a char corresponding to the user input is returned
     * Globals: n/a
     * Returns: either the character 'y' or 'n' depending on the user input
-    * Description: prompts the user for a yes or no answer and returns a character corresponding to the result
+    * Description: prompts the user for a yes or no answer and returns a
+    * character corresponding to the result
     */
 
-	// Declares a character array (string) that will be later be filled by the user input
+	// Declares a character array (string) that will be later be filled by the
+    // user input
 	char input[4];
 
 	// Prompts the user for yes or no input until a valid response is entered
@@ -76,8 +78,13 @@ int all_values_within_range(double* array, int array_size, int max, int min) {
     * Globals: n/a
     * Returns: int
     * Description: returns true (0) if all values within the array are between
-    * min and max, inclusive, else returns false.
+    * min and max, inclusive, else returns false. size can always be
+    * sizeof(array)/sizeof(double).
     */
+
+    // every time we find a number withing our range, we add to count. at the
+    // end, if count = the size of the array, then we know every value must be
+    // between min and max
     int count = 0;
     for (int i = 0; i < array_size; i++) {
         if ((array[i]-min)*(array[i]-max) <= 0) {
