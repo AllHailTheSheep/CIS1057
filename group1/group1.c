@@ -18,7 +18,7 @@ int main(){
     print_int_array(test1, sizeof(test1)/sizeof(int));
     for (int i = 0; i < sizeof(test1)/sizeof(int); i++){
         int test1_i = count_all(test1, sizeof(test1)/sizeof(int), i);
-        printf("searching for %d int test1: found it %d times.\n", i, test1_i);
+        printf("searching for %d in test1: found it %d times.\n", i, test1_i);
     }
     printf("\n");
 
