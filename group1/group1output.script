@@ -1,0 +1,79 @@
+Script started on Mon 08 Nov 2021 07:09:48 PM EST
+cis-lclient15:~/CIS1057/group1>gcc group1.c
+cis-lclient15:~/CIS1057/group1>./a.out 
+This purpose of this program is to test the functions defined in group1.h
+This program was written by Ben Fasick, et. al. on 1 November 2021.
+test1 = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5
+searching for 0 int test1: found it 2 times.
+searching for 1 int test1: found it 2 times.
+searching for 2 int test1: found it 2 times.
+searching for 3 int test1: found it 2 times.
+searching for 4 int test1: found it 2 times.
+searching for 5 int test1: found it 2 times.
+searching for 6 int test1: found it 1 times.
+searching for 7 int test1: found it 1 times.
+searching for 8 int test1: found it 1 times.
+searching for 9 int test1: found it 1 times.
+searching for 10 int test1: found it 1 times.
+searching for 11 int test1: found it 0 times.
+searching for 12 int test1: found it 0 times.
+searching for 13 int test1: found it 0 times.
+searching for 14 int test1: found it 0 times.
+searching for 15 int test1: found it 0 times.
+searching for 16 int test1: found it 0 times.
+
+test2 = 0, 1, 1, 0, 0, 1, 1, 2
+searching for 0 int test2: found it 3 times.
+searching for 1 int test2: found it 4 times.
+searching for 2 int test2: found it 1 times.
+searching for 3 int test2: found it 0 times.
+searching for 4 int test2: found it 0 times.
+searching for 5 int test2: found it 0 times.
+searching for 6 int test2: found it 0 times.
+searching for 7 int test2: found it 0 times.
+
+test3 = 99, 9999, 99999, 1, 0, 1
+searching for 0 int test3: found it 1 times.
+searching for 1 int test3: found it 2 times.
+searching for 2 int test3: found it 0 times.
+searching for 3 int test3: found it 0 times.
+searching for 4 int test3: found it 0 times.
+searching for 5 int test3: found it 0 times.
+
+yesNo will run 5 times.
+Try entering yes, no, yES, NO, ect.
+Iteration 0
+Enter yes or no: yes
+The function returned y.
+Iteration 1
+Enter yes or no: no
+The function returned n.
+Iteration 2
+Enter yes or no: nO
+The function returned n.
+Iteration 3
+Enter yes or no: NO
+The function returned n.
+Iteration 4
+Enter yes or no: yES
+The function returned y.
+0.000000, 100.000000, 1000.000000
+min: 0
+max: 9999
+result: 0
+0.000000, 100.000000, 1000.000000
+min: 0
+max: 10
+result: 1
+1.000000, 2.500000, 1000.000000, 1500.015000, 99.875000, 100.011000
+min: 1
+max: 1500
+result: 1
+1.000000, 2.500000, 1000.000000, 1500.015000, 99.875000, 100.011000
+min: 0
+max: 1600
+result: 0
+cis-lclient15:~/CIS1057/group1>exit
+exit
+
+Script done on Mon 08 Nov 2021 07:10:28 PM EST
