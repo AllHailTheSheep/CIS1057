@@ -43,7 +43,7 @@ int main(){
     printf("\n");
 
     // tests for yesNo
-    printf("yesNo will run 5 times.\n");
+    printf("yesNo will run 5 times.\nTry entering yes, no, yES, NO, ect.\n");
     for (int i = 0; i < 5; i++){
         char res;
         printf("Iteration %d\n", i);
