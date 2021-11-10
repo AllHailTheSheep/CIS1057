@@ -149,6 +149,7 @@ int main(){
 
         char* double_operators = "/r";
         char* double_operators_pos = strstr(double_operators, operator);
+        
         // fill array
         for (int x = 0; x < array_x; x++){
             for (int y = 0; y < array_y; y++){
