@@ -13,7 +13,10 @@ char* get_str_input(char*); // returns a string after prompting for input
 // arrays
 void print_int_array(int*, int); // prints an int array
 void print_double_array(double*, int); // prints a double array
-void print_2d_char_array(char***, int, int); // prints a 2d char array
+void print_string_array(char**, int); // prints a string array
+void print_2d_string_array(char***, int, int); // prints a 2d string array
+// general functions
+int count_all(char**, int, char*); // returns the number of times x occurrs in the array
 
 void program_identification(char *name, char *date, char* description) {
     /*
@@ -134,7 +137,7 @@ void print_double_array(double* array, int array_size) {
     * Description: prints a double array
     */
     for (int i = 0; i < array_size; i++) {
-        if ( i != array_size - 1) {
+        if (i != array_size - 1) {
             printf("%lf, ", array[i]);
         } else {
             printf("%lf", array[i]);
@@ -144,7 +147,19 @@ void print_double_array(double* array, int array_size) {
     return;
 }
 
-void print_2d_char_array(char*** array, int i, int j) {
+void print_string_array(char** array, int array_size) {
+    for (int i = 0; i < array_size; i++) {
+        if (i != array_size - 1) {
+            printf("%s, ", array[i]);
+        } else {
+            printf("%s", array[i]);
+        }
+    }
+    printf("\n");
+    return;
+}
+
+void print_2d_string_array(char*** array, int array_x, int array_y) {
     /*
     * Function: print_char_array()
     * Programmer Name: Ben Fasick
@@ -158,8 +173,8 @@ void print_2d_char_array(char*** array, int i, int j) {
     * Description: prints an i x j char array
     */
    
-    for (int x = 0; x < i; x++) {
-        for (int y = 0; y < j; y++) {
+    for (int x = 0; x < array_x; x++) {
+        for (int y = 0; y < array_y; y++) {
             printf("%s", array[x][y]);
             int len = strlen(array[x][y]);
             for (int i = 0; i < 16 - len; i++) {
@@ -170,4 +185,26 @@ void print_2d_char_array(char*** array, int i, int j) {
     }
     printf("\n");
     return;
+}
+
+int count_all(char** haystack, int haystack_size, char* needle) {
+    /*
+    * Function: count_all()
+    * Programmer Name: Ben Fasick
+    * Date:11/1/2021
+    * Preconditions:
+    * int* haystack, int haystack_size, int needle
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: int
+    * Description: counts the amount of times needle appears in haystack.
+    */
+    int count = 0;
+    for (int i = 0; i < haystack_size; i++) {
+        if (strcmp(haystack[i], needle) == 0) {
+            count += 1;
+        }
+    }
+    return count;   
 }
