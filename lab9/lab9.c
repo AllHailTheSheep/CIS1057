@@ -48,10 +48,19 @@ int main() {
     resistor r;
     resistor *r_ptr = &r;
     analyze_bands(bands, bandsnum, r_ptr);
-
     
-
-    return EXIT_SUCCESS;
+    char* temp = malloc(32);
+    // take the input
+    printf("Do you want to analyze another resistor(y/n)?: ");
+    scanf("%s", temp);
+    for (int i = 0; i < sizeof(temp)/sizeof(char); i++) {
+        temp[i] = tolower(temp[i]);
+    }
+    if (strcmp(temp, "y") == 0) {
+        main();
+    } else {
+        return EXIT_SUCCESS;
+    }
 }
 
 char** get_bands() {
