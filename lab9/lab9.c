@@ -184,7 +184,7 @@ void analyze_bands(char** array, int bands_num, resistor *r) {
         } else if (i == r->multiplier_index) {
             // get the value to multiply by
             int index = get_index(multiplier_codes, 10, array[i]);
-            if (index != -1) {
+            if (index >= 0) {
                 r->multiplier = multiplier_values[index];
                 printf("Mutiplier band is %s with value %f\n", array[i], r->multiplier);
             } else {
