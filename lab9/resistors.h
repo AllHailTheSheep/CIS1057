@@ -4,9 +4,9 @@
 #define IN_MAIN
 
 #ifdef IN_MAIN
-const char COLOR_CODES[10][7] = {"black", "brown", "red", "orange",
+const char COLOR_CODES[12][7] = {"black", "brown", "red", "orange",
                                 "yellow","green", "blue", "violet",
-                                "grey", "white"};
+                                "grey", "white", "gold", "silver"};
 #else
-extern char COLOR_CODES[10][7];
+extern char COLOR_CODES[12][7];
 #endif

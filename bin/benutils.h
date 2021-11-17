@@ -16,6 +16,7 @@ void print_double_array(double*, int); // prints a double array
 void print_string_array(char**, int); // prints a string array
 void print_2d_string_array(char***, int, int); // prints a 2d string array
 // general functions
+int get_index(char**, int, char*); // returns the index of needle
 int count_all(char**, int, char*); // returns the number of times x occurrs in the array
 
 void program_identification(char *name, char *date, char* description) {
@@ -185,6 +186,32 @@ void print_2d_string_array(char*** array, int array_x, int array_y) {
     }
     printf("\n");
     return;
+}
+
+int get_index(char** haystack, int haystack_size, char* needle) {
+    /*
+    * Function: get_index()
+    * Programmer Name: Ben Fasick
+    * Date:11/15/2021
+    * Preconditions:
+    * int* haystack, int haystack_size, int needle
+    * Postconditions:
+    * n/a
+    * Globals: n/a
+    * Returns: int
+    * Description: returns the index that the needle last appears at. if needle
+    * does not appear in haystack, the return value is -1.
+    */
+
+    // printf("looking for %s in haystack\n", needle);
+    int index = -1;
+    for (int i = 0; i < haystack_size; i++) {
+        if (strcmp(haystack[i], needle) == 0) {
+            index = i;
+            // printf("found %s at index %d\n", needle, index);
+        }
+    }
+    return index;   
 }
 
 int count_all(char** haystack, int haystack_size, char* needle) {
