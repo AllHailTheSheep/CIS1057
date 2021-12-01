@@ -51,7 +51,7 @@ int main() {
     
     char* temp = malloc(32);
     // take the input
-    printf("Do you want to analyze another resistor(y/n)?: ");
+    printf("Do you want to analyze another resistor (y/n)?: ");
     scanf("%s", temp);
     for (int i = 0; i < sizeof(temp)/sizeof(char); i++) {
         temp[i] = tolower(temp[i]);
@@ -174,19 +174,24 @@ void analyze_bands(char** array, int bands_num, resistor *r) {
             // if i < multiplier_index then we concat the corresponding index
             // of color_codes to ohms
             int index = get_index(color_codes, 10, array[i]);
-            printf("Regular band %d is %s with value %d\n", i + 1, array[i], index);
-            char temp[2];
-            // make sure theres no trailing newline
-            snprintf(temp, sizeof(temp), "%d", index);
-            temp[strcspn(temp, "\n")] = 0;
-            // add temp to ohms
-            strcat(ohms, temp);
+            if (index >= 0) {
+                printf("Regular band %d is %s with value %d\n", i + 1, array[i], index);
+                char temp[2];
+                // make sure theres no trailing newline
+                snprintf(temp, sizeof(temp), "%d", index);
+                temp[strcspn(temp, "\n")] = 0;
+                // add temp to ohms
+                strcat(ohms, temp);
+            } else {
+                printf("%s is not a known reistor color band!\n", array[i]);
+                main();
+            }
         } else if (i == r->multiplier_index) {
             // get the value to multiply by
             int index = get_index(multiplier_codes, 10, array[i]);
             if (index >= 0) {
                 r->multiplier = multiplier_values[index];
-                printf("Mutiplier band is %s with value %f\n", array[i], r->multiplier);
+                printf("Mutiplier band is %s with value x%f\n", array[i], r->multiplier);
             } else {
                 printf("%s is an unknown multiplier band color.\n",
                         multiplier_codes[index]);
@@ -197,13 +202,14 @@ void analyze_bands(char** array, int bands_num, resistor *r) {
             int index = get_index(tolerance_codes, 7, array[i]);
             if (index >= 0) {
                 r->tolerance = tolerance_values[index];
-                printf("Tolerance band is %s with value %f\n", array[i], r->tolerance);
+                printf("Tolerance band is %s with value +/-%f%%\n", array[i], r->tolerance);
             } else {
                 printf("%s is  an unkown tolerance band color.\n", array[i]);
                 main();
             }
         }
     }
+    printf("\n");
     double temp;
     char *eptr;
     // convert our ohms string to a double
