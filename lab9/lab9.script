@@ -1,0 +1,66 @@
+Script started on Wed 01 Dec 2021 10:55:25 AM EST
+cis-lclient06:~/CIS1057/lab9>gcc lab9.c
+cis-lclient06:~/CIS1057/lab9>./a.out 
+This purpose of this program is to create a program to decode resistor band combinations
+This program was written by Ben Fasick on 11 November 2021.
+The supported band colors are:
+black, brown, red, orange, yellow, green, blue, violet, grey, white, gold, silver, and none.
+Input band 1 of 5: yellow
+Input band 2 of 5: green
+Input band 3 of 5: blue
+Input band 4 of 5: brown
+Input band 5 of 5: none
+yellow, green, blue, brown, none
+Number of bands: 4
+Regular band 1 is yellow with value 4
+Regular band 2 is green with value 5
+Mutiplier band is blue with value x1000000.000000
+Tolerance band is brown with value +/-1.000000%
+
+Resistance: 45000000.000000 ohms
+Tolerance: +/-1.000000%
+Resistor range: 44550000.000000 - 45450000.000000 ohms
+Do you want to analyze another resistor (y/n)?: y
+This purpose of this program is to create a program to decode resistor band combinations
+This program was written by Ben Fasick on 11 November 2021.
+The supported band colors are:
+black, brown, red, orange, yellow, green, blue, violet, grey, white, gold, silver, and none.
+Input band 1 of 5: green
+Input band 2 of 5: orange
+Input band 3 of 5: brown
+Input band 4 of 5: none
+Input band 5 of 5: none
+green, orange, brown, none, none
+Number of bands: 3
+Regular band 1 is green with value 5
+Mutiplier band is orange with value x1000.000000
+Tolerance band is brown with value +/-1.000000%
+
+Resistance: 5000.000000 ohms
+Tolerance: +/-1.000000%
+Resistor range: 4950.000000 - 5050.000000 ohms
+Do you want to analyze another resistor (y/n)?: y
+This purpose of this program is to create a program to decode resistor band combinations
+This program was written by Ben Fasick on 11 November 2021.
+The supported band colors are:
+black, brown, red, orange, yellow, green, blue, violet, grey, white, gold, silver, and none.
+Input band 1 of 5: green
+Input band 2 of 5: red
+Input band 3 of 5: brown
+Input band 4 of 5: brown
+Input band 5 of 5: none
+green, red, brown, brown, none
+Number of bands: 4
+Regular band 1 is green with value 5
+Regular band 2 is red with value 2
+Mutiplier band is brown with value x10.000000
+Tolerance band is brown with value +/-1.000000%
+
+Resistance: 520.000000 ohms
+Tolerance: +/-1.000000%
+Resistor range: 514.800000 - 525.200000 ohms
+Do you want to analyze another resistor (y/n)?: n
+cis-lclient06:~/CIS1057/lab9>exit
+exit
+
+Script done on Wed 01 Dec 2021 10:56:20 AM EST
